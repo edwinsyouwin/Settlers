@@ -6,22 +6,24 @@ def dice_roll():
     total_dice = dice1 + dice2
     return total_dice
 
-position_vector = [(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(2,4),(3,1),(3,2),(3,3),(3,4),(3,5),(4,1),(4,2),(4,3),(4,4),(5,1),(5,2),(5,3)]
-random.shuffle(position_vector)
+tile_position_vector = [(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(2,4),(3,1),(3,2),(3,3),(3,4),(3,5),(4,1),(4,2),(4,3),(4,4),(5,1),(5,2),(5,3)]
+## tile position vector (x,y) where x is column and y is row
+random.shuffle(tile_position_vector)
 
-desert_location = position_vector.pop()
+desert_location = tile_position_vector.pop()
+## sets the location of the desert because desert is not assigned a tile dice number
 
 resources = ['wheat','wheat','wheat','wheat','sheep','sheep','sheep','sheep','wood','wood','wood','wood','brick','brick','brick','stone','stone','stone']
 random.shuffle(resources)
 
-dice_numbers=[2,3,3,4,4,5,5,6,6,8,8,9,9,10,10,11,11,12]
-random.shuffle(dice_numbers)
+board_dice_numbers=[2,3,3,4,4,5,5,6,6,8,8,9,9,10,10,11,11,12]
+random.shuffle(board_dice_numbers)
 
-board = zip(position_vector, resources, dice_numbers)
+board = zip(position_vector, resources, board_dice_numbers)
 board.append((desert_location,'desert',7))
 
-for each in board:
-    print each
+##for each in board:
+##    print each
 
 def return_position_vector():
     e = dice_roll()
@@ -56,6 +58,5 @@ def match_vertices():
                     matched_vertices.append(each)
     return matched_vertices
 
+print match_vertices()
 
-for vertice in vertice_location_dictionary:
-    
